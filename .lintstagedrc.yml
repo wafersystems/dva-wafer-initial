@@ -1,0 +1,27 @@
+{
+  "linters":{
+    "**/*.{js,jsx}":[
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ],
+    "**/*.less": [
+      "stylelint --syntax less",
+      "prettier --write",
+      "git add"
+    ],
+    "**/*.css": [
+      "stylelint ",
+      "prettier --write",
+      "git add"
+    ],
+    "**/*.scss": [
+      "stylelint --syntax scss",
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "ignore": [
+    "**/dist/**/*"
+  ]
+}
