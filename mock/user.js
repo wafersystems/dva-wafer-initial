@@ -1,4 +1,4 @@
-export const user = [
+const user = [
   '付小小',
   '曲丽丽',
   '林东东',
@@ -10,3 +10,5 @@ export const user = [
   '谭小仪',
   '仲尼',
 ];
+
+export default user;

@@ -1,14 +1,14 @@
 import 'core-js/fn/object/assign';
-import '@babel/polyfill';//endsWith等的兼容性处理。
+import '@babel/polyfill'; // endsWith等的兼容性处理。
 import dva from 'dva';
 import 'intl';
 import { addLocaleData } from 'react-intl';
 import './index.less';
 import createHistory from 'history/createBrowserHistory';
-import {message} from 'antd';
+import { message } from 'antd';
 import createLoading from 'dva-loading';
 import * as I18n from '../i18n/index';
-import {CHINESE, ENGLISH} from '../utils/constant';
+import { CHINESE, ENGLISH } from '../utils/constant';
 
 if (navigator && /Edge/.test(navigator.userAgent)) {
   delete window.fetch;
@@ -21,11 +21,11 @@ addLocaleData(I18n[ENGLISH]);
 // 1. Initialize
 const app = dva({
   history: createHistory(),
-  onError: (e) => {
+  onError: e => {
     message.destroy();
     window.console.error(e);
     message.error(e.message);
-  }
+  },
 });
 
 // 2. Plugins

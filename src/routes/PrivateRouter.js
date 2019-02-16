@@ -1,13 +1,13 @@
 /**
  * date: 2018-04-20 10:10
  * auth: XuQiang
- **/
+ */
 
 import React from 'react';
-import { Route, Redirect} from 'dva/router';
-import {PATH_HOME} from "../utils/constant";
+import { Route, Redirect } from 'dva/router';
+import { PATH_HOME } from '../utils/constant';
 
-export const PrivateRoute = ({ component: Component, ...rest }) => (
+const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
     render={props =>
@@ -17,10 +17,12 @@ export const PrivateRoute = ({ component: Component, ...rest }) => (
         <Redirect
           to={{
             pathname: PATH_HOME,
-            state: { from: props.location }
+            state: { from: props.location },
           }}
         />
       )
     }
   />
 );
+
+export default PrivateRoute;

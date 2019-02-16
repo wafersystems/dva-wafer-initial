@@ -1,6 +1,6 @@
 // import 'raf/polyfill';
-import React from 'react';
 import 'dva';
+import * as expect from 'expect';
 import LoginModel from '../../src/models/login';
 
 describe('models/login', () => {
@@ -12,7 +12,7 @@ describe('models/login', () => {
       expect(LoginModel.state).toBeDefined();
       expect(LoginModel.state).toMatchObject({
         changeLoginStatus: {},
-        user: []
+        user: [],
       });
     });
   });
@@ -20,15 +20,17 @@ describe('models/login', () => {
   describe('test reducers', () => {
     it('validate reducer function:', () => {
       expect(LoginModel.reducers).toBeDefined();
-      expect(LoginModel.reducers.setState({}, {payload: {test: {}}})).toMatchObject({test: {}});
+      expect(LoginModel.reducers.setState({}, { payload: { test: {} } })).toMatchObject({
+        test: {},
+      });
     });
   });
 
-  describe('test effects', function() {
-    it('validate effects function:', function() {
+  describe('test effects', () => {
+    it('validate effects function:', () => {
       expect(LoginModel.effects).toBeDefined();
-      const accountSubmit = LoginModel.effects.accountSubmit;
-      accountSubmit({payload: {username: '8888'}})
+      const { accountSubmit } = LoginModel.effects;
+      accountSubmit({ payload: { username: '8888' } });
     });
   });
 });
