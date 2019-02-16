@@ -1,49 +1,45 @@
 const publicPath = '/';
 
 export default {
-  "entry": "src/page/*.js",
-  "extraBabelPlugins": [
+  entry: 'src/page/*.js',
+  extraBabelPlugins: [
     [
-      "import",
+      'import',
       {
-        "libraryName": "antd",
-        "libraryDirectory": "es",
-        "style": true
-      }
-    ],
-    [
-      "import",
-      {
-        "libraryName": "antd-mobile",
-        "libraryDirectory": "es",
-        "style": true
+        libraryName: 'antd',
+        libraryDirectory: 'es',
+        style: true,
       },
-      "antd-mobile-import"
     ],
-    "lodash"
+    [
+      'import',
+      {
+        libraryName: 'antd-mobile',
+        libraryDirectory: 'es',
+        style: true,
+      },
+      'antd-mobile-import',
+    ],
+    'lodash',
   ],
-  "env": {
-    "development": {
-      "extraBabelPlugins": [
-        "dva-hmr"
-      ]
-    }
+  env: {
+    development: {
+      extraBabelPlugins: ['dva-hmr'],
+    },
   },
-  "proxy": {
+  proxy: {
     // "/api": {
     //   "target": "http://localhost:8080/"
     // },
-    "/app": {
-      "target": "http://localhost:8000/",
-      "pathRewrite": {"^/app.*$": "/app.html"}
-    }
+    '/app': {
+      target: 'http://localhost:8000/',
+      pathRewrite: { '^/app.*$': '/app.html' },
+    },
   },
-  "theme": "./src/styles/theme.js",
+  theme: './src/styles/theme.js',
   publicPath,
-  // hash: true,
-  // html: {
-  //   "template": "./src/index.ejs"
-  // },
-  define: {publicPath},
-  es5ImcompatibleVersions: true
-}
+  define: { publicPath, restfulPath: '' },
+  devtool: 'source-map',
+  hash: true,
+  es5ImcompatibleVersions: true,
+};
